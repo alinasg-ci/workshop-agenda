@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CI+AI Workshop — Agenda</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:wght@500;600&family=Open+Sans:wght@400;500;600;700&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;font-family:'Open Sans',sans-serif}
+:root{
+  --bg:#f8f7f4;--bg2:#f1efe9;
+  --surface:#ffffff;--surface2:#fdfcfa;
+  --teal:#0d9488;--teal-b:#0891b2;--teal-l:#0e7490;
+  --orange:#ea580c;--gold:#c79a30;--gold-b:#f5c55e;
+  --ink:#0c1722;--text:#1f2d3d;--muted:#5a6b7b;--muted2:#8597a6;
+  --line:rgba(20,35,52,.10);--line2:rgba(20,35,52,.18);
+}
+html{-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);line-height:1.6;padding:1.5rem 1.5rem 3rem;position:relative;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(900px 720px at 8% -4%,rgba(13,148,136,.12),transparent 56%),
+  radial-gradient(820px 760px at 96% 100%,rgba(245,197,94,.10),transparent 54%),
+  radial-gradient(720px 640px at 100% 2%,rgba(245,197,94,.11),transparent 52%),
+  radial-gradient(900px 900px at 50% 120%,rgba(8,145,178,.07),transparent 58%)}
+.w{max-width:980px;margin:0 auto;position:relative;z-index:2}
+
+/* Header — dark work-band */
+.hdr{position:relative;overflow:hidden;background:linear-gradient(135deg,#16273a,#0e1825 70%);border:1px solid var(--line);border-radius:18px;padding:1.5rem 1.75rem 1.35rem;margin-bottom:.75rem;box-shadow:0 18px 40px -18px rgba(12,23,34,.55)}
+.hdr::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(500px 380px at 88% 18%,rgba(6,182,212,.18),transparent 60%),
+  radial-gradient(420px 340px at 10% 110%,rgba(245,197,94,.14),transparent 60%)}
+.pcol{position:relative;z-index:1;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px;margin-top:14px}
+.hpill{font-size:11px;font-weight:600;letter-spacing:.07em;color:rgba(255,255,255,.65);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px 11px;white-space:nowrap}
+.htx{position:relative;z-index:1}
+.htx h1{font-family:'Newsreader',Georgia,serif;font-size:54px;font-weight:600;letter-spacing:-.025em;line-height:.96;background:linear-gradient(104deg,#8ff7ef 0%,#5fe3d6 36%,#f5c55e 100%);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.htx .s1{display:none}
+.htx .s2{font-size:15px;color:rgba(244,247,250,.62);font-weight:400}
+
+/* Divider glow */
+.divglow{height:1px;border:none;margin:.1rem 0 .6rem;background:linear-gradient(90deg,transparent,rgba(13,148,136,.4),rgba(234,88,12,.3),transparent)}
+
+/* Row cards (intro / outro) */
+.crow{position:relative;background:linear-gradient(160deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;padding:.85rem 1.25rem;display:flex;align-items:center;gap:14px;cursor:pointer;margin-bottom:.5rem;user-select:none;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;box-shadow:0 18px 40px -28px rgba(20,35,52,.28)}
+.crow:hover{transform:translateY(-3px);border-color:rgba(13,148,136,.25);box-shadow:0 32px 56px -24px rgba(20,35,52,.38)}
+.cbadge{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);background:rgba(199,154,48,.1);border:1px solid rgba(199,154,48,.22);padding:3px 10px;border-radius:999px;flex-shrink:0}
+.crow-tx{flex:1}
+.crow-ti{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+.crow-pu{font-size:13.5px;color:var(--muted);line-height:1.4}
+.cind{font-size:18px;font-weight:600;color:var(--teal-l);flex-shrink:0;width:22px;text-align:center}
+
+/* Stepper */
+.process-wrap{margin-top:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(13,148,136,.22);border-radius:20px;padding:.75rem .75rem .6rem;background:rgba(13,148,136,.03)}
+.process-label{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:.65rem;padding-left:2px}
+.stepper{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(160deg,var(--surface),var(--surface2));box-shadow:0 18px 40px -28px rgba(20,35,52,.28)}
+.stab{padding:13px 8px 12px;cursor:pointer;text-align:center;border-right:1px solid var(--line);transition:background .2s;user-select:none}
+.stab:last-child{border-right:none}
+.stab:hover{background:rgba(13,148,136,.05)}
+.stab.on{background:rgba(13,148,136,.07);box-shadow:inset 0 -2.5px 0 var(--teal)}
+.sn{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#ea580c,#f5c55e);color:#fff;font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 6px;box-shadow:0 0 10px rgba(234,88,12,.3);transition:box-shadow .2s}
+.stab.on .sn{box-shadow:0 0 16px rgba(234,88,12,.5)}
+.stl{font-size:12.5px;font-weight:600;color:var(--text);line-height:1.3}
+
+/* Expand panels */
+.xpanel{background:linear-gradient(160deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:.5rem;display:none;box-shadow:0 18px 40px -28px rgba(20,35,52,.28)}
+.xpanel.open{display:block}
+.ph{padding:.85rem 1.4rem .7rem;border-bottom:1px solid var(--line);display:flex;gap:13px;align-items:flex-start}
+.phnum{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#ea580c,#f5c55e);color:#fff;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;box-shadow:0 0 12px rgba(234,88,12,.3)}
+.phbar{width:3px;border-radius:2px;background:linear-gradient(180deg,var(--teal),var(--gold));flex-shrink:0;align-self:stretch;margin:2px 0}
+.phti{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+.phpu{font-size:13.5px;color:var(--muted);line-height:1.45}
+.pb{display:grid;grid-template-columns:1fr 1fr}
+.pt{padding:.85rem 1.4rem;border-right:1px solid var(--line)}
+.paa{padding:.85rem 1.4rem;background:rgba(13,148,136,.04)}
+.pact{grid-column:1/-1;padding:.85rem 1.4rem;background:rgba(234,88,12,.04);border-top:1px solid var(--line)}
+.po{grid-column:1/-1;padding:.65rem 1.4rem;border-top:1px solid rgba(143,247,239,.12);background:linear-gradient(135deg,#16273a,#0e1825 70%);position:relative;overflow:hidden}
+.po::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(400px 200px at 90% 50%,rgba(6,182,212,.12),transparent 60%)}
+
+/* Labels — eyebrow style */
+.lb{display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px}
+.lb::before{content:"";width:20px;height:1.5px;flex-shrink:0}
+.pt .lb{color:var(--muted2)}.pt .lb::before{background:linear-gradient(90deg,var(--muted2),transparent)}
+.paa .lb{color:var(--teal-l)}.paa .lb::before{background:linear-gradient(90deg,var(--teal),transparent)}
+.pact .lb{color:var(--orange)}.pact .lb::before{background:linear-gradient(90deg,var(--orange),transparent)}
+.po .lb{color:rgba(143,247,239,.7)}.po .lb::before{background:linear-gradient(90deg,rgba(143,247,239,.7),transparent)}
+
+ul.li{padding-left:1.1rem;margin:0}
+ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
+.pt ul.li li{color:var(--text)}.paa ul.li li{color:var(--teal-l)}.pact ul.li li{color:var(--orange)}
+.pill{display:inline-block;font-size:12.5px;font-weight:600;padding:3px 11px;border-radius:999px;background:rgba(234,88,12,.12);color:var(--orange);border:1px solid rgba(234,88,12,.28);margin:2px 3px}
+.po .pill{background:rgba(143,247,239,.1);color:#8ff7ef;border:1px solid rgba(143,247,239,.22);position:relative;z-index:1}
+
+/* Use cases */
+.uc-sec{margin-top:1.25rem}
+.uc-heading{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.025em;margin-bottom:.75rem}
+.uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+.uc-card{background:linear-gradient(160deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;padding:.85rem 1rem;box-shadow:0 18px 40px -28px rgba(20,35,52,.28);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.uc-card:hover{transform:translateY(-3px);border-color:rgba(13,148,136,.25);box-shadow:0 32px 56px -24px rgba(20,35,52,.38)}
+.uc-title{font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px}
+.uc-desc{font-size:12.5px;color:var(--muted);line-height:1.48}
+
+/* Footer about */
+.footer-about{position:relative;z-index:1;display:flex;gap:1.1rem;align-items:flex-start;margin-bottom:1.1rem}
+.about-photo-sm{width:52px;height:52px;border-radius:10px;flex-shrink:0;background:repeating-linear-gradient(45deg,rgba(148,163,184,.1) 0 8px,transparent 8px 16px);border:1px dashed rgba(148,163,184,.25);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;letter-spacing:.06em;color:rgba(244,247,250,.3);text-align:center;overflow:hidden}
+.about-photo-sm img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.footer-about .fa-name{font-size:14px;font-weight:700;color:#f4f7fa;letter-spacing:-.01em;margin-bottom:1px}
+.footer-about .fa-role{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(143,247,239,.6);margin-bottom:.5rem}
+.footer-about .fa-bio{font-size:13px;color:rgba(244,247,250,.52);line-height:1.62;max-width:680px}
+.footer-sep{position:relative;z-index:1;height:1px;background:rgba(143,247,239,.1);margin-bottom:1.1rem}
+
+/* Footer */
+.site-footer{margin-top:1.25rem;position:relative;overflow:hidden;background:linear-gradient(150deg,#0f1d2c 0%,#0a141f 58%,#0c1722 100%);border:1px solid rgba(143,247,239,.1);border-radius:18px;padding:1.75rem 2rem}
+.site-footer::before{content:"";position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(500px 300px at 90% 10%,rgba(6,182,212,.14),transparent 60%),
+  radial-gradient(400px 300px at 10% 100%,rgba(245,197,94,.1),transparent 60%)}
+.footer-inner{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand .fname{font-size:17px;font-weight:700;color:#f4f7fa;letter-spacing:-.01em}
+.footer-brand .tagline{font-size:14px;margin-top:4px;font-weight:600;letter-spacing:-.01em;background:linear-gradient(104deg,#8ff7ef 0%,#5fe3d6 36%,#f5c55e 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.footer-links{display:flex;align-items:center;gap:20px}
+.footer-links a{color:rgba(244,247,250,.4);transition:color .2s ease;display:flex;align-items:center}
+.footer-links a:hover{color:#8ff7ef}
+</style>
+</head>
+<body>
+<div class="w">
+
+<div class="hdr">
+  <div class="htx">
+    <h1>CI+AI Workshop</h1>
+    <p class="s2">How to do better competitor &amp; market research with AI tools</p>
+    <div class="pcol">
+      <span class="hpill">methodology</span>
+      <span class="hpill">process-led</span>
+      <span class="hpill">use case-based</span>
+      <span class="hpill">AI in every phase</span>
+      <span class="hpill">builds-to-scope</span>
+    </div>
+  </div>
+</div>
+
+<hr class="divglow">
+
+<div class="crow" onclick="togI()">
+  <div class="crow-tx">
+    <p class="crow-ti">CI as a product decision discipline</p>
+    <p class="crow-pu">What CI is, where it fits in product decisions, and the case we'll work through</p>
+  </div>
+  <span class="cind" id="ii">+</span>
+</div>
+<div class="xpanel" id="ip">
+  <div class="ph"><span class="phbar"></span><div><p class="phti">CI as a product decision discipline</p><p class="phpu">What CI is, where it fits in product decisions, and the case we'll work through</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>What CI is — and what it isn't</li>
+      <li>Information vs intelligence</li>
+      <li>CI as input to decisions, not source of verdicts</li>
+      <li>Where CI enters product discovery, roadmap planning, and prioritization</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI pitfalls</p><ul class="li">
+      <li>Common mistakes in using AI for research</li>
+      <li>Weaknesses that need to be managed</li>
+    </ul></div>
+  </div>
+</div>
+
+<div class="process-wrap">
+  <p class="process-label">The research process</p>
+  <div class="stepper">
+    <div class="stab" onclick="selS(0)"><div class="sn">1</div><div class="stl">Planning</div></div>
+    <div class="stab" onclick="selS(1)"><div class="sn">2</div><div class="stl">Collection</div></div>
+    <div class="stab" onclick="selS(2)"><div class="sn">3</div><div class="stl">Analysis</div></div>
+    <div class="stab" onclick="selS(3)"><div class="sn">4</div><div class="stl">Review</div></div>
+    <div class="stab" onclick="selS(4)"><div class="sn">5</div><div class="stl">Communication</div></div>
+  </div>
+</div>
+
+<div class="xpanel" id="s0">
+  <div class="ph"><div class="phnum">1</div><div><p class="phti">Frame the decision, formulate the intelligence questions</p><p class="phpu">Turn a vague competitive concern into a bounded, answerable intelligence assignment</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Name the decision the work must inform</li>
+      <li>Identify assumptions driving the decision</li>
+      <li>Turn assumptions into answerable intelligence questions</li>
+      <li>Focus scope and lock definitions</li>
+      <li>Set the evidence bar and define "done"</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI angle</p><ul class="li">
+      <li>Expose hidden assumptions and alternative framings</li>
+      <li>Sharpen questions</li>
+      <li>Get critique</li>
+      <li>Model plan before model runs</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Bring your own decision / question</li>
+      <li>Identify assumptions most likely to change the decision</li>
+      <li>Turn assumptions into questions and a plan</li>
+      <li>Set scope, evidence standards, and a stopping condition</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Decision statement</span><span class="pill">Intelligence questions (prioritized)</span><span class="pill">Scope & evidence bar</span><span class="pill">Initial research brief</span></div>
+  </div>
+</div>
+
+<div class="xpanel" id="s1">
+  <div class="ph"><div class="phnum">2</div><div><p class="phti">Design and execute the collection plan</p><p class="phpu">Decide what evidence is needed, where it may exist, and how to collect it in a traceable way</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Map available sources</li>
+      <li>Types of information and evidence grades</li>
+      <li>What sources can and can't prove — bias, credibility, recency</li>
+      <li>Evidence capture best practices</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI angle</p><ul class="li">
+      <li>Bounded tasks with explicit source instructions</li>
+      <li>Build a sourcing strategy</li>
+      <li>Run source discovery</li>
+      <li>Prompt for atomic, traceable evidence</li>
+      <li>Flag barriers, gaps, and conflicts</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Build a source map</li>
+      <li>Collect evidence in a structured log</li>
+      <li>Evaluate coverage</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Approved source & collection plan</span><span class="pill">Structured evidence log</span><span class="pill">Visible gaps, conflicts & confidence notes</span></div>
+  </div>
+</div>
+
+<div class="xpanel" id="s2">
+  <div class="ph"><div class="phnum">3</div><div><p class="phti">Analyze and synthesize</p><p class="phpu">Move from evidence to a defensible intelligence picture and product-relevant implications</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Separate evidence, interpretation, and implication</li>
+      <li>Identify table stakes, differentiators, whitespace, and trajectory signals</li>
+      <li>Evaluate workflow fit and user value</li>
+      <li>Surface contradictions, evidence gaps, and segmentation lines</li>
+      <li>Translate findings into decision implications</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI angle</p><ul class="li">
+      <li>Cluster, compare, and surface contradictions</li>
+      <li>Keep evidence separate from model interpretation</li>
+      <li>Prevent model from assuming, overreaching, under-evaluating</li>
+      <li>Require each insight to trace to evidence; preserve ambiguity</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Analyze your evidence using a small number of lenses</li>
+      <li>Build a provisional answer</li>
+      <li>Identify implications for the decision</li>
+      <li>Record what remains uncertain</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Provisional findings & patterns</span><span class="pill">Evidence → interpretation → implication chain</span><span class="pill">Initial answer with confidence & gaps</span></div>
+  </div>
+</div>
+
+<div class="xpanel" id="s3">
+  <div class="ph"><div class="phnum">4</div><div><p class="phti">Review, validate, and challenge</p><p class="phpu">Establish whether the answer is sound, defensible, and strong enough to act on</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Evidence traceability</li>
+      <li>Can conclusions trace back to evidence?</li>
+      <li>Challenges and Red-teaming</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI angle</p><ul class="li">
+      <li>Fresh-context agents for validation and adversarial review</li>
+      <li>Fail-closed gates before errors propagate</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Validate selected claims against their sources</li>
+      <li>Build the strongest opposing case</li>
+      <li>Identify what would falsify the answer</li>
+      <li>Revise the assessment</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Review & validation findings</span><span class="pill">Revised assessment</span><span class="pill">Opposing case & falsification conditions</span></div>
+  </div>
+</div>
+
+<div class="xpanel" id="s4">
+  <div class="ph"><div class="phnum">5</div><div><p class="phti">Communicate for the decision</p><p class="phpu">Turn the validated intelligence picture into an output the team can use correctly</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Reporting best practices</li>
+      <li>Tailoring to your audience</li>
+      <li>Communication confidence and doubt</li>
+    </ul></div>
+    <div class="paa"><p class="lb">AI angle</p><ul class="li">
+      <li>Pitfalls in report and presentation generation</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Design and write a customized decision brief</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Decision-ready case output</span></div>
+  </div>
+</div>
+
+<div class="crow" onclick="togO()">
+  <div class="crow-tx">
+    <p class="crow-ti">Operationalize the habit</p>
+    <p class="crow-pu">Move from a one-off exercise to a repeatable product-team practice</p>
+  </div>
+  <span class="cind" id="oi">+</span>
+</div>
+<div class="xpanel" id="op">
+  <div class="ph"><span class="phbar"></span><div><p class="phti">Operationalize the habit</p><p class="phpu">Move from a one-off exercise to a repeatable product-team practice</p></div></div>
+  <div class="pb">
+    <div class="pt"><p class="lb">Topics</p><ul class="li">
+      <li>Where CI enters the product process</li>
+      <li>What to automate and what to keep human</li>
+<li>Customization and generalization</li>
+      <li>How to keep improving &amp; evolving the agent</li>
+    </ul></div>
+    <div class="pact"><p class="lb">Hands-on activity</p><ul class="li">
+      <li>Create a generalized lightweight operating model</li>
+      <li>Define your future usage</li>
+    </ul></div>
+    <div class="po"><p class="lb">Working output</p><span class="pill">Repeatable process</span><span class="pill">Automation</span><span class="pill">Human-in-the-loop</span><span class="pill">Customization</span></div>
+  </div>
+</div>
+
+
+<div class="uc-sec">
+  <h2 class="uc-heading">Suggested use cases</h2>
+  <div class="uc-grid">
+    <div class="uc-card">
+      <p class="uc-title">Competitor monitoring</p>
+      <p class="uc-desc">Automated monitor that alerts on competitor releases and other major developments</p>
+    </div>
+    <div class="uc-card">
+      <p class="uc-title">Competitive analysis</p>
+      <p class="uc-desc">Feature, product, and portfolio comparison against a defined competitor set</p>
+    </div>
+    <div class="uc-card">
+      <p class="uc-title">Competitive landscape mapping</p>
+      <p class="uc-desc">Find all competition for a product or company and assess their competitive threat</p>
+    </div>
+    <div class="uc-card">
+      <p class="uc-title">Buyer persona research</p>
+      <p class="uc-desc">"Mini" market research based on OSINT — who buys, why, and on what terms</p>
+    </div>
+  </div>
+
+<footer class="site-footer">
+  <div class="footer-about">
+    <div class="about-photo-sm"><img src="https://images.squarespace-cdn.com/content/v1/695234cb9708a5709d4a5cb3/ffe46927-bc5f-4959-b8f1-e856ad8dd888/ChatGPT+Image+Dec+25%2C+2025%2C+12_25_01+PM.png" alt="Alina Sharon-Green"></div>
+    <div>
+      <p class="fa-name">Alina Sharon-Green</p>
+      <p class="fa-role">Competitive &amp; Market Intelligence Specialist</p>
+      <p class="fa-bio">I work with product and marketing teams to help them do better research and make smarter use of AI for competitive and market intelligence — through workshops, training programs, and hands-on engagements. Over more than a decade across companies of different sizes and verticals, I've focused on building CI capabilities that stick: giving teams the frameworks, judgment, and habits to do this work themselves. I also work directly with decision-makers — founders, CEOs, and business leaders — to help them make sense of their market, their competition, and their customers, and make better-founded decisions because of it.</p>
+    </div>
+  </div>
+  <div class="footer-sep"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fname">ASG Competitive</div>
+      <div class="tagline">Know. Don't guess.</div>
+    </div>
+    <div class="footer-links">
+      <a href="https://asgcompetitive.com" title="Website" aria-label="Website" target="_blank"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></a>
+      <a href="mailto:alina@asgcompetitive.com" title="Email" aria-label="Email"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+      <a href="https://linkedin.com/in/alinasharon" title="LinkedIn" aria-label="LinkedIn" target="_blank"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+let io=false,oo=false,cs=-1;
+function togI(){io=!io;document.getElementById('ip').classList.toggle('open',io);document.getElementById('ii').textContent=io?'−':'+';}
+function togO(){oo=!oo;document.getElementById('op').classList.toggle('open',oo);document.getElementById('oi').textContent=oo?'−':'+';}
+function selS(i){
+  const tabs=document.querySelectorAll('.stab');
+  if(cs===i){tabs[i].classList.remove('on');document.getElementById('s'+i).classList.remove('open');cs=-1;return;}
+  if(cs>=0){tabs[cs].classList.remove('on');document.getElementById('s'+cs).classList.remove('open');}
+  tabs[i].classList.add('on');document.getElementById('s'+i).classList.add('open');cs=i;
+}
+</script>
+</body>
+</html>

@@ -49,7 +49,7 @@ body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;bac
 .cind{font-size:18px;font-weight:600;color:var(--teal-l);flex-shrink:0;width:22px;text-align:center}
 
 /* Stepper */
-.process-wrap{margin-top:1.5rem;margin-bottom:1.5rem;border:1px solid rgba(13,148,136,.22);border-radius:20px;padding:.75rem .75rem .6rem;background:rgba(13,148,136,.03)}
+.process-wrap{margin-top:2rem;margin-bottom:2rem;border:1px solid rgba(13,148,136,.22);border-radius:20px;padding:.75rem .75rem .6rem;background:rgba(13,148,136,.03)}
 .process-label{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);margin-bottom:.65rem;padding-left:2px}
 .stepper{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(160deg,var(--surface),var(--surface2));box-shadow:0 18px 40px -28px rgba(20,35,52,.28)}
 .stab{padding:13px 8px 12px;cursor:pointer;text-align:center;border-right:1px solid var(--line);transition:background .2s;user-select:none}
@@ -90,18 +90,29 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
 .po .pill{background:rgba(143,247,239,.1);color:#8ff7ef;border:1px solid rgba(143,247,239,.22);position:relative;z-index:1}
 
 /* Use cases */
-.uc-sec{margin-top:1.25rem}
+.uc-sec{margin-top:2.5rem}
 .uc-heading{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.025em;margin-bottom:.75rem}
 .uc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
 .uc-card{background:linear-gradient(160deg,var(--surface),var(--surface2));border:1px solid var(--line);border-radius:18px;padding:.85rem 1rem;box-shadow:0 18px 40px -28px rgba(20,35,52,.28);transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
 .uc-card:hover{transform:translateY(-3px);border-color:rgba(13,148,136,.25);box-shadow:0 32px 56px -24px rgba(20,35,52,.38)}
 .uc-title{font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em;margin-bottom:5px}
 .uc-desc{font-size:12.5px;color:var(--muted);line-height:1.48}
+.uc-intro{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:1rem;max-width:660px}
+.complexity-bar{margin-top:.9rem;padding:0 2px}
+.complexity-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);opacity:.55;margin-bottom:5px;letter-spacing:.025em}
+.complexity-track{display:flex;align-items:center}
+.complexity-line{flex:1;height:1px;background:linear-gradient(to right,rgba(13,148,136,.12),rgba(13,148,136,.48))}
+.complexity-tip{width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid rgba(13,148,136,.48);flex-shrink:0}
+.complexity-bar{margin-bottom:.9rem;margin-top:0;padding:0 2px}
+.ws-header{margin:.75rem 0 1.75rem}
+.ws-title{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:.45rem}
+.ws-desc{font-size:13px;color:var(--muted);line-height:1.6;max-width:640px}
+.flow-arrow{display:flex;justify-content:center;padding:.55rem 0;color:rgba(13,148,136,.38)}
 
 /* Footer about */
 .footer-about{position:relative;z-index:1;display:flex;gap:1.1rem;align-items:flex-start;margin-bottom:1.1rem}
 .about-photo-sm{width:52px;height:52px;border-radius:10px;flex-shrink:0;background:repeating-linear-gradient(45deg,rgba(148,163,184,.1) 0 8px,transparent 8px 16px);border:1px dashed rgba(148,163,184,.25);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;letter-spacing:.06em;color:rgba(244,247,250,.3);text-align:center;overflow:hidden}
-.about-photo-sm img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+.about-photo-sm img{width:100%;height:100%;object-fit:cover;object-position:50% 15%;border-radius:10px}
 .footer-about .fa-name{font-size:14px;font-weight:700;color:#f4f7fa;letter-spacing:-.01em;margin-bottom:1px}
 .footer-about .fa-role{font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(143,247,239,.6);margin-bottom:.5rem}
 .footer-about .fa-bio{font-size:13px;color:rgba(244,247,250,.52);line-height:1.62;max-width:680px}
@@ -139,6 +150,11 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
 
 <hr class="divglow">
 
+<div class="ws-header">
+  <p class="ws-title">Workshop structure</p>
+  <p class="ws-desc">The following is the workshop agenda. Each section combines theory — methodology, best practices, frameworks, and tips — with a hands-on participant activity applied to the selected topic or question.</p>
+</div>
+
 <div class="crow" onclick="togI()">
   <div class="crow-tx">
     <p class="crow-ti">CI as a product decision discipline</p>
@@ -161,6 +177,8 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
     </ul></div>
   </div>
 </div>
+
+<div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3v11M5 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 
 <div class="process-wrap">
   <p class="process-label">The research process</p>
@@ -290,6 +308,8 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
   </div>
 </div>
 
+<div class="flow-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 3v11M5 10l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
 <div class="crow" onclick="togO()">
   <div class="crow-tx">
     <p class="crow-ti">Operationalize the habit</p>
@@ -317,6 +337,17 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
 
 <div class="uc-sec">
   <h2 class="uc-heading">Suggested use cases</h2>
+  <p class="uc-intro">A workshop works best when focused on one research type. These options run from simpler formats suited to a half-day session, to more complex projects that need a full day or more.</p>
+  <div class="complexity-bar">
+    <div class="complexity-labels">
+      <span>Simpler &middot; half-day</span>
+      <span>More complex &middot; full-day or multi-day</span>
+    </div>
+    <div class="complexity-track">
+      <div class="complexity-line"></div>
+      <div class="complexity-tip"></div>
+    </div>
+  </div>
   <div class="uc-grid">
     <div class="uc-card">
       <p class="uc-title">Competitor monitoring</p>
@@ -335,6 +366,7 @@ ul.li li{font-size:14.5px;margin-bottom:4px;line-height:1.55}
       <p class="uc-desc">"Mini" market research based on OSINT — who buys, why, and on what terms</p>
     </div>
   </div>
+</div>
 
 <footer class="site-footer">
   <div class="footer-about">
